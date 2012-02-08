@@ -37,5 +37,4 @@ module Airbrake
   end
 end
 
-Airbrake::Rails.initialize
-
+Airbrake::Rails.initialize unless defined?(::Rails.configuration) && ::Rails.configuration.respond_to?(:airbrake) && !::Rails.configuration.airbrake.enabled
